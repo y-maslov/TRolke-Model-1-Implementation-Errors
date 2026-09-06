@@ -17,7 +17,9 @@
 #include <vector>
 #include "TRolke.h"
 #include "TRolkeDefault.h"
+#include "TRolkeMinusFix.h"
 #include "TRolke128.h"
+#include "TRolkeMinusFix128.h"
 #include "TRolke128_num.h"
 #include "TFeldmanCousins.h"
 #include <quadmath.h>
@@ -30,7 +32,7 @@
 #include "TMultiGraph.h"
 
 
-// rootcomp TRolke128_num.cxx TRolke128_num.h TRolke128.cxx TRolke128.h LL_comparsion.cpp -l quadmath -fext-numeric-literals -o LL_comparsion.exe
+// rootcomp TRolkeMinusFix128.cxx TRolkeMinusFix128.h TRolkeMinusFix.cxx TRolkeMinusFix.h TRolkeDefault.cxx TRolkeDefault.h TRolke128_num.cxx TRolke128_num.h TRolke128.cxx TRolke128.h LL_comparison.cpp -l quadmath -fext-numeric-literals -o LL_comparison.exe
 
 template <typename TRolkeX, typename float_type> class LL_Grapher {
     public:
@@ -82,9 +84,22 @@ void DrawLLGraphs(int x, int y, int z, int m, __float128 tau, std::vector <doubl
         " z = "  + std::to_string(z) + " m = "  + std::to_string(m) + " tau = "  + std::to_string((double) tau);
     mg->SetTitle(title.c_str());
 
-    LL_Grapher <TRolke128, Double_t> defaultRolke(alpha); 
+    // LL_Grapher <TRolke128, Double_t> defaultRolke128(alpha); 
+    // defaultRolke128.CalcUnfixedMu(x, y, z, tau, m, mu_vec);
+    // defaultRolke128.AddToMultiGraphFixedMu(mg, legend, 2, "defaultRolke128");
+
+    LL_Grapher <TRolkeDefault, Double_t> defaultRolke(alpha); 
     defaultRolke.CalcUnfixedMu(x, y, z, tau, m, mu_vec);
     defaultRolke.AddToMultiGraphFixedMu(mg, legend, 0, "defaultRolke");
+
+
+    // LL_Grapher <TRolkeMinusFix128, Double_t> RolkeMinusFix128(alpha); 
+    // RolkeMinusFix128.CalcUnfixedMu(x, y, z, tau, m, mu_vec);
+    // RolkeMinusFix128.AddToMultiGraphFixedMu(mg, legend, 3, "RolkeMinusFix128");
+
+    LL_Grapher <TRolkeMinusFix, Double_t> RolkeMinusFix(alpha); 
+    RolkeMinusFix.CalcUnfixedMu(x, y, z, tau, m, mu_vec);
+    RolkeMinusFix.AddToMultiGraphFixedMu(mg, legend, 4, "RolkeMinusFix");
 
     // LL_Grapher <TRolke128, __float128> defaultRolke128(alpha); 
     // defaultRolke128.CalcUnfixedMu(x, y, z, tau, m, mu_vec);
