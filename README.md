@@ -32,7 +32,7 @@ This error can't be fixed by changing the signs, because after this fix (RolkeMi
 |![Rolke_fix_0](graphics/Rolke_fix_0.jpg)|![Rolke_fix_1](graphics/Rolke_fix_1.jpg)|![Rolke_fix_2](graphics/Rolke_fix_2.jpg)|
 
 
-### Reproduction of examples
+## Reproduction of examples
 
 It is assumed that ROOT is already installed.
 
@@ -57,8 +57,8 @@ It is important to note that the analytical solution is implemented using libqua
 
 ## LLM Usage
 
-ChatGPT-5 was used while translating the original report [error_report_ru.pdf](error_report_ru.pdf) from Russian to English [error_report_eng.pdf](error_report_eng.pdf) since the original report was presented in my bachelor's thesis devoted to a J/psi feasibility study for the SCTF.
-ChatGPT-5.6 was used to detect grammatical and other language errors in README.md.
+- ChatGPT-5 was used while translating the original report [error_report_ru.pdf](error_report_ru.pdf) from Russian to English [error_report_eng.pdf](error_report_eng.pdf) since the original report was presented in my bachelor's thesis devoted to a J/psi feasibility study for the SCTF.
+- ChatGPT-5.6 was used to detect grammatical and other language errors in README.md.
 
 
 ## Citations
